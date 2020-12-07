@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+<style>
+        table,table tr th, table tr td { border:1px solid #0094ff; }
+        table { width: 200px; min-height: 25px; line-height: 25px; text-align: center; border-collapse: collapse;}   
+</style>
+<h1>Projects</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @group_projects.each do |group_project| %>
+      <tr>
+        <td><%= group_project.ProjectName %></td>
+        <td><%= link_to 'Show', group_project %></td>
+        <td><%= link_to 'Edit', edit_group_project_path(group_project) %></td>
+        <td><%= link_to 'Destroy', group_project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+<a href="/group_projects/new"> Create a New Project </a>
+
+<br>
+<a href="/dashboard"> Take me to Dashboard </a><br>
+<a href="/home"> Take me Home </a>

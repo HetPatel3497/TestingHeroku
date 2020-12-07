@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+<style>
+        table,table tr th, table tr td { border:1px solid #0094ff; }
+        table { width: 200px; min-height: 25px; line-height: 25px; text-align: center; border-collapse: collapse;}   
+    </style>
+<h1>Groups</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Group Name</th>
+      <th colspan="10"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @groups.each do |group| %>
+      <tr>
+        <td><%= group.GroupName %></td>
+        <% User.all.each do |user| %>
+            <% if user.groups_id == group.id %>
+            <td><%= user.fname %></td> <td><%= user.lname %></td> 
+            <% end %>
+        <% end %>
+        <td><%= link_to 'Show', group %></td>
+        <td><%= link_to 'Edit', edit_group_path(group) %></td>
+        <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+
+  
+</table>
+
+<br>
+
+<%= link_to 'Create a New Group', new_group_path %>
+<br>
+<a href="/dashboard"> Take me to Dashboard </a>

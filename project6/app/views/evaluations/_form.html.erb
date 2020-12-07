@@ -1,0 +1,31 @@
+
+<%= form_with(model: evaluation, local: true, url: submit_evaluation_path(Comment1: evaluation.Comment1,users_id:evaluation.users_id,group_projects_id:evaluation.group_projects_id)) do |form| %>
+  <% if evaluation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(evaluation.errors.count, "error") %> prohibited this group from being saved:</h2>
+
+      <ul>
+        <% evaluation.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :Comment1 %>
+    <%= form.text_field :Comment1 %>
+  </div>
+  <div class="field">
+    <%= form.label :users_id %>
+    <%= form.text_field :users_id %>
+  </div>
+  <div class="field">
+    <%= form.label :group_projects_id %>
+    <%= form.text_field :group_projects_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  EvaluationId: 
+  Student: 1
+  GroupId: 1
+  ProjectId: 1
+  TemplateId: 1
+  Score: 1
+
+two:
+  EvaluationId: 
+  Student: 1
+  GroupId: 1
+  ProjectId: 1
+  TemplateId: 1
+  Score: 1

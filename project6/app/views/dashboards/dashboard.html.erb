@@ -1,0 +1,67 @@
+<br>
+
+<% if current_user %>
+    
+    
+
+    <% if current_user.instructor %>
+        Hello instructor: <%= current_user.fname %>! 
+        <br><br>
+        <a href="/groups"> Click here to see all groups. </a>
+        <br> <br>
+        <table border="1px" >
+            <tr>
+            <td> Evaluations </td> 
+            </tr> 
+            <tr>
+                <td> Comment </td>
+                <td> First Name </td>
+                <td> Project ID </td>
+            </tr>
+
+            <% Evaluation.all.each do |eval| %>
+                <tr>
+                    <td> <%= eval.Comment1 %> </td>
+                    <td>
+                        <% User.all.each do |user| %>
+                            <% if user.id == eval.users_id %>
+                                <%= user.fname %> 
+                            <% end %>
+                        <% end %>    
+
+                    </td>
+                    <td> <%= eval.group_projects_id %> </td>
+                </tr>
+            <% end %>
+        </table>
+
+       
+
+
+    <% else %>
+        Hello Student: <%= current_user.fname %>!
+        <br>
+        You belong in the group   
+        <% usersGroupName = "" %>        
+        <% Group.all.each do |group|%>
+            <% if group.id == current_user.groups_id %> 
+                <% usersGroupName = group.GroupName %> <br> <% break %>
+                                                          <%# make sure to modify the above to "return" the name of thea team the user belongs to %>     
+            <% else %>
+                <% usersGroupName = " [YOU ARE NOT CURRENTLY IN A GROUP] " %> 
+            <% end %>
+
+        <% end %>
+        <%= usersGroupName.to_s %>
+
+        <br>
+
+        
+        
+        
+    <% end %>
+
+
+<% else %>
+    you are not signed in
+<% end %>

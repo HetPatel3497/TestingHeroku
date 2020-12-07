@@ -1,0 +1,155 @@
+{
+	"folders": {},
+	"connections": {
+		"sqlite_jdbc-1761763ea71-23f0dcf497afdba8": {
+			"provider": "generic",
+			"driver": "sqlite_jdbc",
+			"name": "development.sqlite3",
+			"save-password": true,
+			"show-system-objects": true,
+			"read-only": false,
+			"configuration": {
+				"database": "/home/liangcan/Desktop/Zoom-Project-6/project6/db/development.sqlite3",
+				"url": "jdbc:sqlite:/home/liangcan/Desktop/Zoom-Project-6/project6/db/development.sqlite3",
+				"type": "dev",
+				"auth-model": "native"
+			}
+		}
+	},
+	"virtual-models": {
+		"sqlite_jdbc-1761763ea71-23f0dcf497afdba8": {
+			"@properties": {
+				"erd.diagram.state": {
+					"serialized": "<diagram version=\"1\" name=\"development.sqlite3\" time=\"202012011745\"><entities><data-source id=\"sqlite_jdbc-1761763ea71-23f0dcf497afdba8\"><entity id=\"1\" name=\"ar_internal_metadata\" fq-name=\"ar_internal_metadata\" order=\"0\" x=\"896\" y=\"30\"/><entity id=\"2\" name=\"evaluations\" fq-name=\"evaluations\" order=\"1\" x=\"204\" y=\"4\"/><entity id=\"3\" name=\"group_projects\" fq-name=\"group_projects\" order=\"2\" x=\"5\" y=\"199\"/><entity id=\"4\" name=\"groups\" fq-name=\"groups\" order=\"3\" x=\"20\" y=\"20\"/><entity id=\"5\" name=\"schema_migrations\" fq-name=\"schema_migrations\" order=\"4\" x=\"1086\" y=\"51\"/><entity id=\"6\" name=\"templates\" fq-name=\"templates\" order=\"5\" x=\"2\" y=\"365\"/><entity id=\"7\" name=\"users\" fq-name=\"users\" order=\"6\" x=\"373\" y=\"307\"/><entity id=\"8\" name=\"views\" fq-name=\"views\" order=\"7\" x=\"151\" y=\"189\"/></data-source></entities><relations/></diagram>"
+				}
+			},
+			":users": {
+				"constraints": {
+					"users_VK": {
+						"type": "vpk",
+						"attributes": [
+							"Project1"
+						]
+					}
+				},
+				"foreign-keys": [
+					{
+						"entity": "database://sqlite_jdbc-1761763ea71-23f0dcf497afdba8/org.jkiss.dbeaver.ext.generic.model.GenericTable/Template",
+						"constraint": "Template_VK",
+						"attributes": {
+							"id": "Evaluee4"
+						}
+					},
+					{
+						"entity": "database://sqlite_jdbc-1761763ea71-23f0dcf497afdba8/org.jkiss.dbeaver.ext.generic.model.GenericTable/Evaluation",
+						"constraint": "EVALUATION_PK",
+						"attributes": {
+							"EvaluationId": "EvaluationId"
+						}
+					}
+				]
+			},
+			":GroupProject": {
+				"constraints": {
+					"VIRTUAL_PK": {
+						"type": "vpk",
+						"attributes": [
+							"ProjectId"
+						]
+					}
+				},
+				"foreign-keys": [
+					{
+						"entity": "database://sqlite_jdbc-1761763ea71-23f0dcf497afdba8/org.jkiss.dbeaver.ext.generic.model.GenericTable/users",
+						"constraint": "users_VK",
+						"attributes": {
+							"ProjectId": "Project1"
+						}
+					},
+					{
+						"entity": "database://sqlite_jdbc-1761763ea71-23f0dcf497afdba8/org.jkiss.dbeaver.ext.generic.model.GenericTable/Groups",
+						"constraint": "Groups_VK",
+						"attributes": {
+							"ProjectId": "Project5"
+						}
+					}
+				]
+			},
+			":Groups": {
+				"constraints": {
+					"Groups_VK": {
+						"type": "vpk",
+						"attributes": [
+							"Student3"
+						]
+					}
+				}
+			},
+			":Evaluation": {
+				"foreign-keys": [
+					{
+						"entity": "database://sqlite_jdbc-1761763ea71-23f0dcf497afdba8/org.jkiss.dbeaver.ext.generic.model.GenericTable/Groups",
+						"constraint": "GroupId",
+						"attributes": {
+							"GroupId": "GroupId"
+						}
+					},
+					{
+						"entity": "database://sqlite_jdbc-1761763ea71-23f0dcf497afdba8/org.jkiss.dbeaver.ext.generic.model.GenericTable/GroupProject",
+						"constraint": "GROUPPROJECT_PK",
+						"attributes": {
+							"ProjectId": "ProjectId"
+						}
+					},
+					{
+						"entity": "database://sqlite_jdbc-1761763ea71-23f0dcf497afdba8/org.jkiss.dbeaver.ext.generic.model.GenericTable/Template",
+						"constraint": "TEMPLATE_PK",
+						"attributes": {
+							"TemplateId": "TemplateId"
+						}
+					},
+					{
+						"entity": "database://sqlite_jdbc-1761763ea71-23f0dcf497afdba8/org.jkiss.dbeaver.ext.generic.model.GenericTable/users",
+						"constraint": "USERS_PK",
+						"attributes": {
+							"Student": "id"
+						}
+					}
+				]
+			},
+			":Template": {
+				"constraints": {
+					"Template_VK": {
+						"type": "vpk",
+						"attributes": [
+							"Evaluee1",
+							"Evaluee2",
+							"Evaluee3",
+							"Evaluee4"
+						]
+					}
+				}
+			},
+			":evaluations": {
+				"constraints": {
+					"evaluations_VK": {
+						"type": "vpk",
+						"attributes": [
+							"GroupId"
+						]
+					}
+				}
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false
+		}
+	}
+}

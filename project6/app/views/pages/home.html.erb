@@ -1,0 +1,25 @@
+
+<h1>Class info and evaluations</h1>
+<body>
+    <% if current_user %>
+       
+    <% if current_user.instructor %>
+
+        <a href="/dashboard"> Take me to Dashboard </a><br>
+        <a href="/groups/index">All Groups</a><br>
+        <a href="/group_projects/index">All Projects</a>
+        <br> <br> 
+        <%= link_to 'Sign out',destroy_user_session_path, method: :delete %> <br>
+    <% else %>
+        <a href="/dashboard"> Take me to Dashboard </a><br>
+        <br> <br> 
+        <%= link_to 'Sign out',destroy_user_session_path, method: :delete %> <br>
+    <% end %>
+
+    
+
+    <% else %>
+        <%= link_to 'Sign up', new_user_registration_path %>
+        <%= link_to 'Sign in', new_user_session_path %>
+    <% end %>
+</body>

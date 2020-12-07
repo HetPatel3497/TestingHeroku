@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Student1: 1
+  Student2: 1
+  Student3: 1
+  Student4: 1
+  Student5: 1
+  GroupName: MyString
+  project1: 1
+  project2: 1
+  project3: 1
+  project4: 1
+  project5: 1
+
+two:
+  Student1: 1
+  Student2: 1
+  Student3: 1
+  Student4: 1
+  Student5: 1
+  GroupName: MyString
+  project1: 1
+  project2: 1
+  project3: 1
+  project4: 1
+  project5: 1
